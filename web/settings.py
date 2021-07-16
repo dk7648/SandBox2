@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import environ, os
+from django.urls import reverse_lazy
 
 env = environ.Env(
     # set casting, default value
@@ -48,6 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
+    'accountapp',
+
 ]
 
 MIDDLEWARE = [
@@ -65,7 +69,7 @@ ROOT_URLCONF = 'web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,7 +134,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# 파일들이 어디로 모일것인지.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGOUT_REDIRECT_URL = reverse_lazy('home')
+
+#인터넷 주소창에 media에 접근하기 위한 경로
+MEDIA_URL = '/media/'
+
+#파일을 올리면 저장되는 공간
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
