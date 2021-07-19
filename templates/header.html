@@ -16,11 +16,14 @@
                 <span>SignUp</span>
             </a>
             {% else %}
-            <a href="">
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
                 <span>MyPage</span>
             </a>
             <a href="{% url 'accountapp:logout' %}">
                 <span>logout</span>
+            </a>
+            <a href="{% url 'postapp:create' %}">
+                <span>post</span>
             </a>
             {% endif %}
         </div>

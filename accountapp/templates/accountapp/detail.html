@@ -63,30 +63,30 @@
 
         {% endif %}
 
-        <div>
-            <h2>프로젝트 프레임</h2>
-            {% for project in project_list %}
-                {% if project.writer == target_user %}
-                <h4>{{project.title}}</h4>
-                <img src="{{project.image1.url}}" style="height:10rem; width:10rem;">
-                <h4>{{project.content}}</h4>
-                <h4>{{project.created_at}}</h4>
-                {% endif %}
-            {% endfor %}
-        </div>
+<!--        <div>-->
+<!--            <h2>프로젝트 프레임</h2>-->
+<!--            {% for project in project_list %}-->
+<!--                {% if project.writer == target_user %}-->
+<!--                <h4>{{project.title}}</h4>-->
+<!--                <img src="{{project.image1.url}}" style="height:10rem; width:10rem;">-->
+<!--                <h4>{{project.content}}</h4>-->
+<!--                <h4>{{project.created_at}}</h4>-->
+<!--                {% endif %}-->
+<!--            {% endfor %}-->
+<!--        </div>-->
 
-        <div>
-            <h2>프로젝트 프레임2</h2>
-            {% for join in join_list %}
-                {% if join.user == target_user %}
-                <h2>{{join.user}}</h2>
-                <h4>{{join.project.title}}</h4>
-                <img src="{{join.project.image1.url}}" style="height:10rem; width:10rem;">
-                <h4>{{join.project.content}}</h4>
-                <h4>{{join.project.created_at}}</h4>
-                {% endif %}
-            {% endfor%}
-        </div>
+<!--        <div>-->
+<!--            <h2>프로젝트 프레임2</h2>-->
+<!--            {% for join in join_list %}-->
+<!--                {% if join.user == target_user %}-->
+<!--                <h2>{{join.user}}</h2>-->
+<!--                <h4>{{join.project.title}}</h4>-->
+<!--                <img src="{{join.project.image1.url}}" style="height:10rem; width:10rem;">-->
+<!--                <h4>{{join.project.content}}</h4>-->
+<!--                <h4>{{join.project.created_at}}</h4>-->
+<!--                {% endif %}-->
+<!--            {% endfor%}-->
+<!--        </div>-->
 
 
 
