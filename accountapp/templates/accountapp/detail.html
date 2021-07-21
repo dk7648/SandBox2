@@ -35,6 +35,16 @@
 
         <!--대상 프로필이 없다면,-->
         {% else %}
+        <div>user : {{ target_user }}</div>
+        <div>user email : {{ target_user.email }}</div>
+        <div>user id : {{ target_user.pk }}</div>
+        <div>username : {{ target_user.username }}</div>
+        <div>first name : {{ target_user.first_name }}</div>
+        <div>last name : {{ target_user.last_name }}</div>
+        <div>is active : {{ target_user.is_active }}</div>
+        <div>date joined : {{ target_user.date_joined }}</div>
+        <div>USERNAME_FIELD : {{ target_user.USERNAME_FIELD }}</div>
+        {{googleUser}}
             <!--유저 본인이면,-->
             {% if target_user == user %}
             <a href="{% url 'profileapp:create'%}">

@@ -53,6 +53,13 @@ INSTALLED_APPS = [
     'accountapp',
     'profileapp',
     'postapp',
+
+    'django.contrib.sites',
+    'oauth_app',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -154,3 +161,24 @@ MEDIA_URL = '/media/'
 
 #파일을 올리면 저장되는 공간
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#구글 로그인
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+SITE_ID = 3
+
