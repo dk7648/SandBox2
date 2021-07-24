@@ -53,14 +53,16 @@ INSTALLED_APPS = [
     'accountapp',
     'profileapp',
     'postapp',
+    'dsumapp',
+    'ckeditor',
 
     'django.contrib.sites',
-    'oauth_app',
     'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    'allauth.account',  # 가입한 계정 관리
+    'allauth.socialaccount',  # 소셜 계정으로 가입한 계정 관리
+    'allauth.socialaccount.providers.google',  # 어떤 소셜 서비스를 사용하는지 추가
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -153,8 +155,8 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = reverse_lazy('home')
-LOGOUT_REDIRECT_URL = reverse_lazy('home')
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGOUT_REDIRECT_URL = reverse_lazy('index')
 
 #인터넷 주소창에 media에 접근하기 위한 경로
 MEDIA_URL = '/media/'
@@ -163,10 +165,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #구글 로그인
-AUTHENTICATION_BACKENDS = [
+AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend'
-]
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+SITE_ID = 3
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -179,6 +182,4 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-
-SITE_ID = 3
 

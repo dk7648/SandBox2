@@ -68,3 +68,28 @@ class PostListView(ListView):
     context_object_name = 'post_list'
     template_name = 'postapp/list.html'
     paginate_by = 25
+
+
+#DetailView
+
+# class DSumDetailView(DetailView):
+#     model = DSum
+#     context_object_name = 'target_dsum'
+#     template_name = 'postapp/D-sum.html'
+#
+# class KQuestionDetailView(DetailView):
+#     model = KQuestion
+#     context_object_name = 'target_kquestion'
+#     template_name = 'postapp/KQuestion.html'
+#
+# class ContestDetailView(DetailView):
+#     model = Contest
+#     context_object_name = 'target_contest'
+#     template_name = 'postapp/contest.html'
+#
+# class MajorDetailView(DetailView):
+#     model = Major
+#     context_object_name = 'target_major'
+#     template_name = 'postapp/major-tutoring.html'
+
+#ListView

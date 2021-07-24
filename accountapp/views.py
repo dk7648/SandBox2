@@ -14,8 +14,9 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 
-def home(request):
-    return render(request, 'accountapp/home.html')
+def index(request):
+    return render(request, 'accountapp/index.html')
+
 
 
 class AccountCreateView(CreateView):
