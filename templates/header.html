@@ -16,7 +16,7 @@
           </div>
           <nav class="dropdown-list w-dropdown-list">
             <div>
-              <a href="#" class="dropdown-link w-dropdown-link">d-sum</a>
+              <a href="{% url 'dsumapp:list' %}" class="dropdown-link w-dropdown-link">d-sum</a>
               <a href="#" class="dropdown-link w-dropdown-link">전공1000제</a>
               <a href="#" class="dropdown-link w-dropdown-link">전공튜터링</a>
               <a href="{% url 'index' %}" class="dropdown-link w-dropdown-link">공모전</a>
@@ -46,13 +46,13 @@
     </nav>
   {% if not user.is_authenticated %}
     <div class="kit-nav-buttons-wrap">
-      <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:login' %}" target="_blank" class="button-small kit-download-menu w-inline-block">
+      <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:login' %}" target="_self" class="button-small kit-download-menu w-inline-block">
         <div class="button-label">Login</div>
       </a>
     </div>
   {% else %}
     <div class="kit-nav-buttons-wrap">
-      <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:logout' %}" target="_blank" class="button-small kit-download-menu w-inline-block">
+      <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="{% url 'accountapp:logout' %}" target="_self" class="button-small kit-download-menu w-inline-block">
         <div class="button-label">Logout</div>
       </a>
     </div>

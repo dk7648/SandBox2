@@ -13,8 +13,8 @@
             글 종류 : {{target_post.type}}
         </h4>
         <p>
-            본문 : {{target_post.content}}
-        </p>
+            본문 :
+        </p> {{target_post.content}}
 
         {% if target_post.image %}
             <img src="{{target_post.image.url}}" alt="">
