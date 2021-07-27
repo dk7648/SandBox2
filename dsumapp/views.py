@@ -9,9 +9,6 @@ from django.views.generic import CreateView, DeleteView, ListView, DetailView, U
 from dsumapp.decorators import dsum_ownership_required
 from dsumapp.forms import DsumCreationForm
 from dsumapp.models import Dsum
-from postapp.decorators import post_ownership_required
-from postapp.forms import PostCreationForm
-from postapp.models import Post
 
 
 @method_decorator(login_required, 'get')
