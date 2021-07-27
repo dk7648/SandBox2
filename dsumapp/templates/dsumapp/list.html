@@ -32,7 +32,7 @@
             <div class="text-label big">글쓴이 :</div>
             <div class="text-label date">{{post.writer}}</div>
           </div>
-          <div class="paragraph-70">{{post.content}}</div>
+          <div class="paragraph-70">{{post.content | safe}}</div>
           <div class="blog1-button-wrap">
             <a data-w-id="e3f22483-798b-3788-463d-7441637cf86a" href="{% url 'dsumapp:detail' pk=post.pk%}" class="button-small register w-inline-block">
               <div class="button-label">Read more</div><img src="images/Arrow2x.svg" alt="" class="button-arrow">

@@ -5,8 +5,9 @@
     <div class="mb-4">
         <h4>Post Update</h4>
     </div>
-    <form action="{% url 'postapp:update' pk=target_post.pk %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'dsumapp:update' pk=target_post.pk %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        {{ form.media }}
         {% bootstrap_form form %}
         <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
     </form>
