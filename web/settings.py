@@ -183,3 +183,17 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+#ckeditor
+CKEDITOR_CONFIGS = {
+  'default': {
+      'toolbar': 'full',
+      'extraPlugins': ','.join(
+          [
+              'codesnippet',
+          ]
+
+      ),
+      'codeSnippet_theme': 'monokai_sublime',
+  },
+}
+

@@ -35,6 +35,8 @@ class DsumDetailView(DetailView):
     context_object_name = 'target_post'
     template_name = 'dsumapp/detail.html'
 
+
+
     # def get_context_data(self, **kwargs):
     #     post = self.object
     #     user = self.request.user
@@ -71,3 +73,6 @@ class DsumListView(ListView):
     context_object_name = 'post_list'
     template_name = 'dsumapp/list.html'
     paginate_by = 25
+
+    ordering = ['-id']
+

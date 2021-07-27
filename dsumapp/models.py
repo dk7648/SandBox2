@@ -9,3 +9,6 @@ class Dsum(models.Model):
     content = RichTextField(null=True)
 
     created_at = models.DateField(auto_now_add=True, null=True)
+
+    def summary(self):
+        return self.content[:200]
