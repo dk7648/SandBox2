@@ -77,6 +77,16 @@ class BasicListView(ListView):
 
     ordering = ['-id']
 
+
+
+class BoardListView(BasicListView):
+    template_name = 'boardapp/list.html'
+
+
+
+class NoticeListView(BasicListView):
+    template_name = 'boardapp/notice.html'
+
     def get_queryset(self):
         temp = []
         board_all = Board.objects.all()
@@ -88,16 +98,6 @@ class BasicListView(ListView):
         paginator = Paginator(board_temp, 3)
         queryset = paginator.get_page(page)
         return queryset
-
-class BoardListView(BasicListView):
-    template_name = 'boardapp/list.html'
-
-
-
-class NoticeListView(BasicListView):
-    template_name = 'boardapp/notice.html'
-
-
 
 class ContestListView(BasicListView):
     template_name = 'boardapp/contest.html'
