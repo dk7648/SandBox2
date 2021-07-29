@@ -1,6 +1,6 @@
 <div data-collapse="medium" data-animation="default" data-duration="400" data-easing2="ease-in-out-circ" data-easing="ease-out-circ" id="navigation" role="banner" class="navbar w-nav">
     <div class="nav-kit-wrap"><img src="images/crimson1positive.gif" loading="lazy" width="23" alt="" class="image-2">
-      <a href="http://sejong.korea.ac.kr" class="prospero-brand w-nav-brand">
+      <a href="http://sejong.korea.ac.kr" target="_blank" class="prospero-brand w-nav-brand">
         <div class="prospero-nav-logo"><span class="text-span"><strong class="bold-text">고려대학교 세종캠퍼스</strong></span></div>
         <div class="prospero-nav-logo under"><strong>KOREA UNIVERSITY SEJONG CAMPUS</strong></div>
       </a>
@@ -16,10 +16,12 @@
           </div>
           <nav class="dropdown-list w-dropdown-list">
             <div>
-              <a href="{% url 'dsumapp:list' %}" class="dropdown-link w-dropdown-link">d-sum</a>
-              <a href="#" class="dropdown-link w-dropdown-link">전공1000제</a>
-              <a href="#" class="dropdown-link w-dropdown-link">전공튜터링</a>
-              <a href="{% url 'index' %}" class="dropdown-link w-dropdown-link">공모전</a>
+              <a href="{% url 'boardapp:list' %}" class="dropdown-link w-dropdown-link">전체 게시판</a>
+              <a href="{% url 'boardapp:notice' %}" class="dropdown-link w-dropdown-link">공지사항</a>
+              <a href="{% url 'boardapp:dsum' %}" class="dropdown-link w-dropdown-link">d-sum</a>
+              <a href="{% url 'boardapp:kquestion' %}" class="dropdown-link w-dropdown-link">전공1000제</a>
+              <a href="{% url 'boardapp:tutoring' %}" class="dropdown-link w-dropdown-link">전공튜터링</a>
+              <a href="{% url 'boardapp:contest' %}" class="dropdown-link w-dropdown-link">공모전</a>
             </div>
           </nav>
         </div>

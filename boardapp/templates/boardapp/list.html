@@ -7,7 +7,7 @@
     <div id="Hero" class="section detail">
       <div class="w-layout-grid grid">
         <div id="w-node-_7dda8885-ea4b-3585-181f-391edaf00c22-ae5f94eb" class="elements-headline-wrap">
-          <div class="sizejumbo-text">디썸<br></div>
+            <div class="sizejumbo-text">전체 게시판<br></div>
           <p class="detail_page">전자 및 정보공학과 <br>비교과 프로그램 전체 공지사항</p>
         </div>
       </div>
@@ -17,34 +17,10 @@
     <div class="w-layout-grid blog1-grid">
       <div id="w-node-_4cdac5a5-6ceb-cb09-5bb0-11da51d85b8a-ae5f94eb" class="blog1-headline-wrap detail_page">
         <div class="size3-text">All Posts<br></div>
-        <a href="{% url 'dsumapp:create' %}"><button><div>post</div></button></a>
+        <a href="{% url 'boardapp:create' %}"><button><div>post</div></button></a>
       </div>
       {% for post in post_list %}
-        <div  class="detail_page detail_component">
-          <a href="#" class="size4-link">{{post.title}}</a>
-          <div class="date_detail">
-            <div class="text-label big">게시일 :</div>
-            <div class="text-label date">{{post.created_at}}</div>
-            <div class="nav-kit-divider"></div>
-            <div class="text-label big">신청마감일 :</div>
-            <div class="text-label date">2020/12/31</div>
-            <div class="nav-kit-divider"></div>
-            <div class="text-label big">글쓴이 :</div>
-            <div class="text-label date">{{post.writer}}</div>
-          </div>
-          <div class="paragraph-70">{{post.summary | safe}} ...</div>
-          <hr>
-          <div class="paragraph-70">{{ post.temp | safe }} ...</div>
-          <div>
-            <h1>Temp : </h1>
-          </div>
-
-          <div class="blog1-button-wrap">
-            <a data-w-id="e3f22483-798b-3788-463d-7441637cf86a" href="{% url 'dsumapp:detail' pk=post.pk%}" class="button-small register w-inline-block">
-              <div class="button-label">Read more</div><img src="images/Arrow2x.svg" alt="" class="button-arrow">
-            </a>
-          </div>
-        </div>
+        {% include 'post.html' %}
       {% endfor %}
 <!--      <div class="detail_page detail_component">-->
 <!--        <a href="#" class="size4-link">각종 서류 제출 관련 공지</a>-->

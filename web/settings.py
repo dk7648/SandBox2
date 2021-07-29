@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'postapp',
     'dsumapp',
     'ckeditor',
+    'boardapp',
 
     'django.contrib.sites',
     'allauth',
