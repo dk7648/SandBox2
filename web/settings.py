@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'dsumapp',
     'ckeditor',
     'boardapp',
+    'commentapp',
 
     'django.contrib.sites',
     'allauth',

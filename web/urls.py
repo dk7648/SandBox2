@@ -30,6 +30,7 @@ urlpatterns = [
     path('posts/', include('postapp.urls')),
     path('dsums/', include('dsumapp.urls')),
     path('boards/', include('boardapp.urls')),
+    path('comments/', include('commentapp.urls')),
 
     path('index/', TemplateView.as_view(template_name="index.html")),
     path('accounts/', include('allauth.urls')),

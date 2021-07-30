@@ -5,7 +5,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DeleteView, ListView, DetailView, UpdateView
+from django.views.generic.edit import FormMixin
 
+from commentapp.forms import CommentCreationForm
 from postapp.decorators import post_ownership_required
 from postapp.forms import PostCreationForm
 from postapp.models import Post
@@ -27,8 +29,9 @@ class PostCreateView(CreateView):
     def get_success_url(self):
         return reverse('postapp:detail', kwargs={'pk': self.object.pk})
 
-class PostDetailView(DetailView):
+class PostDetailView(DetailView, FormMixin):
     model = Post
+    form_class = CommentCreationForm
     context_object_name = 'target_post'
     template_name = 'postapp/detail.html'
 

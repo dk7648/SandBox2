@@ -34,7 +34,12 @@
         <a href="{% url 'postapp:list' %}">
             <p>list</p>
         </a>
-
+    <strong>comment</strong>
+    <form action="{% url 'commentapp:create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+    </form>
     </div>
 </div>
 {% endblock %}
