@@ -19,6 +19,7 @@
         <div class="size3-text">All Posts<br></div>
         <a href="{% url 'boardapp:create' %}"><button><div>post</div></button></a>
       </div>
+
       {% for post in post_list %}
         {% include 'post.html' %}
       {% endfor %}

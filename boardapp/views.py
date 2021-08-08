@@ -1,15 +1,18 @@
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DeleteView, ListView, DetailView, UpdateView
+from django.views.generic.edit import FormMixin
 
 from boardapp.decorators import board_ownership_required
 from boardapp.forms import BoardCreationForm
 from boardapp.models import Board
+from commentapp.forms import CommentCreationForm
+from commentapp.models import Comment
 
 
 @method_decorator(login_required, 'get')
@@ -28,22 +31,20 @@ class BoardCreateView(CreateView):
     def get_success_url(self):
         return reverse('boardapp:detail', kwargs={'pk': self.object.pk})
 
-class BoardDetailView(DetailView):
+class BoardDetailView(DetailView, FormMixin):
     model = Board
+    form_class = CommentCreationForm
     context_object_name = 'target_post'
     template_name = 'boardapp/detail.html'
 
 
 
-    # def get_context_data(self, **kwargs):
-    #     post = self.object
-    #     user = self.request.user
-    #
-    #     #if user.is_authenticated: #로그인 했는가?
-    #        #join = Join.objects.filter(user=user, project=project)
-    #     #object_list = Post.object(project=self.get_object())
-    #     return super(PostDetailView, self).get_context_data(object_list=object_list, **kwargs)
-    #     #return super(PostDetailView, self).get_context_data(join=join, **kwargs)
+    def get_context_data(self, **kwargs):
+        comment_list = Comment.objects.filter(board=self.object.pk).order_by('-created_at')
+        #if user.is_authenticated: #로그인 했는가?
+           #join = Join.objects.filter(user=user, project=project)
+        #object_list = Post.object(project=self.get_object())
+        return super(BoardDetailView, self).get_context_data(comment_list=comment_list, **kwargs)
 
 
 
@@ -79,6 +80,9 @@ class BasicListView(ListView):
 
 
 
+
+
+
 class BoardListView(BasicListView):
     template_name = 'boardapp/list.html'
 
@@ -98,6 +102,7 @@ class NoticeListView(BasicListView):
         paginator = Paginator(board_temp, 3)
         queryset = paginator.get_page(page)
         return queryset
+
 
 class ContestListView(BasicListView):
     template_name = 'boardapp/contest.html'
