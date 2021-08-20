@@ -19,12 +19,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
-from accountapp.views import index
+from accountapp.views import AccountIndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', index, name='index'),
+    path('', AccountIndexView.as_view(), name='index'),
+
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
     path('posts/', include('postapp.urls')),
@@ -32,7 +33,7 @@ urlpatterns = [
     path('boards/', include('boardapp.urls')),
     path('comments/', include('commentapp.urls')),
 
-    path('index/', TemplateView.as_view(template_name="index.html")),
+    #path('index/', TemplateView.as_view(template_name="index.html")),
     path('accounts/', include('allauth.urls')),
     #path('logout', LogoutView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

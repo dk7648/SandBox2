@@ -6,18 +6,32 @@ from django.utils.decorators import method_decorator
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
+from boardapp.models import Board
 
 has_ownership = [account_ownership_required, login_required]
 
 # Create your views here.
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 
 
 def index(request):
     return render(request, 'accountapp/index.html')
 
+class AccountIndexView(ListView):
+    model = Board
+    context_object_name = 'post_list'
+    template_name = 'accountapp/index.html'
 
+    def get_context_data(self):
+        max = 6
+        notice_list = Board.objects.filter(type='notice').order_by('-id')[:max]
+        dsum_list = Board.objects.filter(type='dsum').order_by('-id')[:max]
+        kquestion_list = Board.objects.filter(type='kquestion').order_by('-id')[:max]
+        contest_list = Board.objects.filter(type='contest').order_by('-id')[:max]
+        tutoring_list = Board.objects.filter(type='tutoring').order_by('-id')[:max]
+
+        return super().get_context_data(notice_list=notice_list, dsum_list=dsum_list, kquestion_list=kquestion_list, contest_list=contest_list, tutoring_list=tutoring_list)
 
 class AccountCreateView(CreateView):
     model = User

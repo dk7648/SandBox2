@@ -3,9 +3,9 @@
 {% block content %}
 <div>
     <div style="text-align:center; max-width:500px; margin: 4rem auto">
-       <h1>
-           <strong>글 제목 : {{target_post.title}}</strong>
-       </h1>
+        <h1>
+            <strong>글 제목 : {{target_post.title}}</strong>
+        </h1>
         <h4>
             글쓴이 : {{target_post.writer}}
         </h4>
@@ -22,15 +22,15 @@
         <br>
         <br>
         {% if target_post.writer == user %}
-            <a href="{% url 'boardapp:update' pk=target_post.pk %}">
-                <p>Update Post</p>
-            </a>
-            <a href="{% url 'boardapp:delete' pk=target_post.pk %}">
-                <p>Delete Post</p>
-            </a>
+        <a href="{% url 'boardapp:update' pk=target_post.pk %}">
+            <p>Update Post</p>
+        </a>
+        <a href="{% url 'boardapp:delete' pk=target_post.pk %}">
+            <p>Delete Post</p>
+        </a>
         {% endif %}
 
-<!--        목록 가기-->
+        <!--목록 가기-->
         {% if target_post.type  == 'notice'%}
             <a href="{% url 'boardapp:notice' %}">
         {% endif %}
@@ -49,15 +49,15 @@
             <p>list</p>
         </a>
 
-
         <!--   댓글 쓰기 -->
         {% include 'commentapp/create.html' with board=target_post %}
 
         <h3>댓글</h3><br>
         <!--    댓글 리스트 -->
         {% for comment in comment_list %}
-            <strong>{{comment.writer}}</strong> {{comment.created_at}}<br><br>
-            {{comment.content}}<br><br><hr>
+        <strong>{{comment.writer}}</strong> {{comment.created_at}}<br><br>
+        {{comment.content}}<br><br>
+        <hr>
         {% endfor %}
 
     </div>
