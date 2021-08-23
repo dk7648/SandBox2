@@ -1,6 +1,6 @@
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Wed Jul 21 2021 05:43:07 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="5fdf5b16ab6df3facf9b9fba" data-wf-site="5fdf5b16ab6df35ee79b9f8e">
+<!--  Last Published: Mon Aug 23 2021 00:35:36 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="611cbbad5f4da64486027500" data-wf-site="5fdf5b16ab6df35ee79b9f8e">
 <head>
   <meta charset="utf-8">
   <title>detail_page</title>
@@ -19,18 +19,18 @@
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/final-2c3dd8-a747bae44c98-22507a1374e85.webflow.css" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <script type="text/javascript">WebFont.load({  google: {    families: ["Work Sans:100,200,300,regular,500,600,700,800,900"]  }});</script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Changa One:400,400italic","Work Sans:100,200,300,regular,500,600,700,800,900"]  }});</script>
   <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
 </head>
 <body>
-  <div data-collapse="medium" data-animation="default" data-duration="400" data-easing2="ease-in-out-circ" data-easing="ease-out-circ" id="navigation" role="banner" class="navbar w-nav">
-    <div class="nav-kit-wrap"><img src="images/crimson1positive.gif" loading="lazy" width="23" alt="" class="image-2">
-      <a href="#" class="prospero-brand w-nav-brand">
-        <div class="prospero-nav-logo"><span class="text-span"><strong class="bold-text">고려대학교 세종캠퍼스</strong></span></div>
-        <div class="prospero-nav-logo under"><strong>KOREA UNIVERSITY SEJONG CAMPUS</strong></div>
+  <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header w-nav">
+    <div class="nav-kit-wrap">
+      <a href="http://www.naver.com" class="prospero-brand w-nav-brand">
+        <div class="text-block-9">Sand Box</div>
+        <div class="text-block-8">전자 및 정보공학과 비교과 웹</div>
       </a>
       <div class="nav-kit-divider"></div>
     </div>
@@ -45,8 +45,8 @@
           <nav class="dropdown-list w-dropdown-list">
             <div>
               <a href="dsum-detail-page.html" class="dropdown-link w-dropdown-link">d-sum</a>
-              <a href="1000q-detail-page.html" class="dropdown-link w-dropdown-link">전공1000제</a>
-              <a href="tutoring-detail-page.html" class="dropdown-link w-dropdown-link">전공튜터링</a>
+              <a href="#1000QMajor" class="dropdown-link w-dropdown-link">전공1000제</a>
+              <a href="#Major_tutoring" class="dropdown-link w-dropdown-link">전공튜터링</a>
               <a href="#" class="dropdown-link w-dropdown-link">공모전</a>
             </div>
           </nav>
@@ -73,16 +73,16 @@
       </div>
     </nav>
     <div class="kit-nav-buttons-wrap">
-      <a data-w-id="cb8ec73b-92b3-c27d-4e84-2e9d121a0e07" href="https://webflow.com/website/Prospero-Ecommerce-UI-Kit" target="_blank" class="button-small kit-download-menu w-inline-block">
+      <a data-w-id="a9a45d48-e579-a9a7-1285-cf6a81cf6757" href="https://webflow.com/website/Prospero-Ecommerce-UI-Kit" target="_blank" class="button-small kit-download-menu board_header_login w-inline-block">
         <div class="button-label">Login</div>
       </a>
     </div>
-    <div data-w-id="ae2b4f16-c826-fbf0-1743-c29e48bda8e9" class="menu-button-kit menu-button-kit-nav w-nav-button"><img src="images/Menu-Icon_1Menu-Icon.png" height="14" width="20" alt="" class="menu-icon-kit-nav"><img src="images/Menu-Icon_1Menu-Icon.png" height="14" width="20" alt="" class="menu-icon-swipe"></div>
+    <div data-w-id="a9a45d48-e579-a9a7-1285-cf6a81cf675a" class="menu-button-kit menu-button-kit-nav w-nav-button"><img src="images/Menu-Icon_1Menu-Icon.png" height="14" width="20" style="-webkit-transform:translate3d(0PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" alt="" class="menu-icon-kit-nav"><img src="images/Menu-Icon_1Menu-Icon.png" height="14" width="20" style="-webkit-transform:translate3d(100PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(100PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(100PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(100PX, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" alt="" class="menu-icon-swipe"></div>
   </div>
   <div class="elements-section-headline-wrap">
     <div id="Hero" class="section detail">
       <div class="w-layout-grid grid">
-        <div id="w-node-_7dda8885-ea4b-3585-181f-391edaf00c22-cf9b9fba" class="elements-headline-wrap">
+        <div id="w-node-_7dda8885-ea4b-3585-181f-391edaf00c22-86027500" class="elements-headline-wrap">
           <div class="sizejumbo-text">Detail page<br></div>
           <p class="detail_page">세부페이지입니다.</p>
         </div>
@@ -91,10 +91,10 @@
   </div>
   <div class="section">
     <div class="w-layout-grid blog1-grid">
-      <div id="w-node-_4cdac5a5-6ceb-cb09-5bb0-11da51d85b8a-cf9b9fba" class="blog1-headline-wrap detail_page">
+      <div id="w-node-_4cdac5a5-6ceb-cb09-5bb0-11da51d85b8a-86027500" class="blog1-headline-wrap detail_page">
         <div class="size3-text">All Posts<br></div>
       </div>
-      <div id="w-node-e3f22483-798b-3788-463d-7441637cf85e-cf9b9fba" class="detail_page detail_component">
+      <div id="w-node-e3f22483-798b-3788-463d-7441637cf85e-86027500" class="detail_page detail_component">
         <a href="#" class="size4-link">프로그램 신청 관련</a>
         <div class="date_detail">
           <div class="text-label big">게시일 :</div>
@@ -155,8 +155,8 @@
           <div id="w-node-_2d8a3600-59cf-08d2-fe17-bd16c739f7f1-c739f7eb" class="footer1-links-wrap">
             <div class="size6-text">전체비교과</div>
             <a href="dsum-detail-page.html" class="footer1-link">- D-sum</a>
-            <a href="1000q-detail-page.html" class="footer1-link">- 전공1000제</a>
-            <a href="tutoring-detail-page.html" class="footer1-link">- 전공튜터링</a>
+            <a href="#" class="footer1-link">- 전공1000제</a>
+            <a href="#" class="footer1-link">- 전공튜터링</a>
             <a href="#" class="footer1-link">- 공모전</a>
           </div>
           <div id="w-node-_315d7810-ba3f-ce55-f460-5bf0e6eb928c-c739f7eb" class="footer1-links-wrap">
