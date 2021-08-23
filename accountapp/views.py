@@ -24,7 +24,7 @@ class AccountIndexView(ListView):
     template_name = 'accountapp/index.html'
 
     def get_context_data(self):
-        max = 6
+        max = 9
         notice_list = Board.objects.filter(type='notice').order_by('-id')[:max]
         dsum_list = Board.objects.filter(type='dsum').order_by('-id')[:max]
         kquestion_list = Board.objects.filter(type='kquestion').order_by('-id')[:max]

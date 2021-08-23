@@ -18,8 +18,21 @@ class Board(models.Model):
     #    if len(self.content) > 200:
     #        return self.content[:200] + ' ...'
 
-    def temp(self):
+
+
+    def summary(self):
         remove_tags = re.compile('<.*?>')
         if len(re.sub(remove_tags, '', self.content)) > 100:
             return re.sub(remove_tags, '', self.content)[:100] + ' ...'
+        return re.sub(remove_tags, '', self.content)
+
+    def summary_preview_title(self):
+        remove_tags = re.compile('<.*?>')
+        return re.sub(remove_tags, '', self.title)[:10]
+
+    def summary_preview_content(self):
+        remove_tags = re.compile('<.*?>')
+        if len(re.sub(remove_tags, '', self.content)) > 15:
+            return re.sub(remove_tags, '', self.content)[:15] + '\n' + re.sub(remove_tags, '', self.content)[15:30]
+
         return re.sub(remove_tags, '', self.content)

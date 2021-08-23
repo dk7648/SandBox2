@@ -48,7 +48,7 @@
         {% endif %}
             <p>list</p>
         </a>
-
+        <input type="button" value="BACK" onClick="history.go(-1)">
         <!--   댓글 쓰기 -->
         {% include 'commentapp/create.html' with board=target_post %}
 
