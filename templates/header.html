@@ -1,11 +1,12 @@
 <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="header w-nav">
     {% if request.path == '/'%}
     <div class="nav-kit-wrap"><img src="images/crimson1positive.gif" loading="lazy" width="23" alt="" class="image-2">
-      <a href="#" class="prospero-brand w-nav-brand">
-        <div class="prospero-nav-logo"><span class="text-span"><strong class="bold-text">고려대학교 세종캠퍼스</strong></span></div>
-        <div class="prospero-nav-logo under"><strong>KOREA UNIVERSITY SEJONG CAMPUS</strong></div>
-      </a>
-      <div class="nav-kit-divider"></div>
+        <a href="#" class="prospero-brand w-nav-brand">
+            <div class="prospero-nav-logo"><span class="text-span"><strong class="bold-text">고려대학교 세종캠퍼스</strong></span>
+            </div>
+            <div class="prospero-nav-logo under"><strong>KOREA UNIVERSITY SEJONG CAMPUS</strong></div>
+        </a>
+        <div class="nav-kit-divider"></div>
     </div>
     {% else %}
     <div class="nav-kit-wrap">
@@ -58,38 +59,47 @@
         </div>
     </nav>
 
+    <div>
+        {% if 'korea.ac.kr' in user.email %}
+        {{user.first_name}} {{user.last_name}}
+        {% endif %}
+    </div>
     {% if not user.is_authenticated %}
-        {% if request.path == '/' %}
-        <div class="kit-nav-buttons-wrap">
-            <a data-w-id="236b8f05-7190-3dca-2fbf-3737eb91c803" href="{% url 'accountapp:login' %}" target="_self"
-               class="button-small kit-download-menu w-inline-block">
-                <div class="button-label">Login</div>
-            </a>
-        </div>
-        {% else %}
-        <div class="kit-nav-buttons-wrap">
-            <a data-w-id="236b8f05-7190-3dca-2fbf-3737eb91c803" href="{% url 'accountapp:login' %}" target="_self"
-               class="button-small kit-download-menu board_header_login w-inline-block">
-                <div class="button-label">Login</div>
-            </a>
-        </div>
-        {% endif %}
+    {% if request.path == '/' %}
+    <div class="kit-nav-buttons-wrap">
+        <a data-w-id="236b8f05-7190-3dca-2fbf-3737eb91c803" href="{% url 'accountapp:login' %}" target="_self"
+           class="button-small kit-download-menu w-inline-block">
+            <div class="button-label">Login</div>
+        </a>
+    </div>
     {% else %}
-        {% if request.path == '/' %}
-        <div class="kit-nav-buttons-wrap">
-            <a data-w-id="236b8f05-7190-3dca-2fbf-3737eb91c803" href="{% url 'accountapp:logout' %}" target="_self"
-               class="button-small kit-download-menu w-inline-block">
-                <div class="button-label">Logout</div>
-            </a>
-        </div>
-        {% else %}
-        <div class="kit-nav-buttons-wrap">
-            <a data-w-id="236b8f05-7190-3dca-2fbf-3737eb91c803" href="{% url 'accountapp:logout' %}" target="_self"
-               class="button-small kit-download-menu board_header_login w-inline-block">
-                <div class="button-label">Logout</div>
-            </a>
-        </div>
-        {% endif %}
+    <div class="kit-nav-buttons-wrap">
+        <a data-w-id="236b8f05-7190-3dca-2fbf-3737eb91c803" href="{% url 'accountapp:login' %}" target="_self"
+           class="button-small kit-download-menu board_header_login w-inline-block">
+            <div class="button-label">Login</div>
+        </a>
+    </div>
+    {% endif %}
+    {% else %}
+    <a data-w-id="236b8f05-7190-3dca-2fbf-3737eb91c803" href="{% url 'accountapp:detail' pk=user.pk %}" target="_self" class="button-small kit-download-menu w-inline-block">
+        <div class="button-label">MyPage</div>
+    </a>
+    {% if request.path == '/' %}
+
+    <div class="kit-nav-buttons-wrap">
+        <a data-w-id="236b8f05-7190-3dca-2fbf-3737eb91c803" href="{% url 'accountapp:logout' %}" target="_self"
+           class="button-small kit-download-menu w-inline-block">
+            <div class="button-label">Logout</div>
+        </a>
+    </div>
+    {% else %}
+    <div class="kit-nav-buttons-wrap">
+        <a data-w-id="236b8f05-7190-3dca-2fbf-3737eb91c803" href="{% url 'accountapp:logout' %}" target="_self"
+           class="button-small kit-download-menu board_header_login w-inline-block">
+            <div class="button-label">Logout</div>
+        </a>
+    </div>
+    {% endif %}
     {% endif %}
 
     <div data-w-id="dc026f5b-a1ff-83cb-1a32-ca72adbda497" class="menu-button-kit menu-button-kit-nav w-nav-button"><img

@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DeleteView, ListView, DetailView, UpdateView
 from django.views.generic.edit import FormMixin
 
-from boardapp.decorators import board_ownership_required
+from boardapp.decorators import board_ownership_required, LoginRequired
 from boardapp.forms import BoardCreationForm
 from boardapp.models import Board
 from commentapp.forms import CommentCreationForm
@@ -32,7 +32,8 @@ class BoardCreateView(CreateView):
         return reverse('boardapp:detail', kwargs={'pk': self.object.pk})
 
 
-class BoardDetailView(DetailView, FormMixin):
+class BoardDetailView(LoginRequired, DetailView, FormMixin):
+    login_url = '/accounts/login/'
     model = Board
     form_class = CommentCreationForm
     context_object_name = 'target_post'
@@ -67,7 +68,8 @@ class BoardDeleteView(DeleteView):
     template_name = 'boardapp/delete.html'
 
 
-class BasicListView(ListView):
+class BasicListView(LoginRequired, ListView):
+    login_url = '/accounts/login/'
     model = Board
     context_object_name = 'post_list'
     ordering = ['-id']
