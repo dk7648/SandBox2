@@ -81,6 +81,4 @@ db.sqlite3
 
 .idea/
 
-static
-
 staticfiles
