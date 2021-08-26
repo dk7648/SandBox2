@@ -1,14 +1,27 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 {% block content %}
-<div style="text-align:center; max-width:500px; margin: 4rem auto">
-    <div class="mb-4">
-        <h4>SignUp</h4>
+<div class="w-layout-grid elements-grid signin">
+    <div class="popup-wrap popup1-image-wrap singin">
+      <div class="section">
+        <div class="popup1-grid">
+          <div id="w-node-de1604d7-1046-4722-f594-6ea339f4f1a2-06027524" class="popup1-title-wrap">
+            <div class="text-label spaced-word-label">Join Us</div>
+            <div class="size3-text size3-top-clear">Sand Box<br></div>
+            <p class="sing_in">고려대학교 세종캠퍼스 <br>비교과 웹페이지에 오신것을 환영합니다.<br></p>
+          </div>
+          <div id="w-node-de1604d7-1046-4722-f594-6ea339f4f1ab-06027524" class="popup1-form w-form">
+            <form id="email-form" name="email-form" data-name="Email Form" class="popup1-form-wrap"><input type="text" class="text-field bottom-margin-field w-input" maxlength="256" name="email-3" data-name="Email 3" placeholder="학번" id="email-3" required=""><input type="email" class="text-field bottom-margin-field w-input" maxlength="256" name="Email" data-name="Email" placeholder="학교 이메일 (@korea.ac.kr)" id="Email-4" required=""><input type="text" class="text-field bottom-margin-field w-input" maxlength="256" name="birthday" data-name="birthday" placeholder="생년월일(ex&gt; 950413)" id="birthday" required=""><input type="password" class="text-field bottom-margin-field w-input" autofocus="true" maxlength="256" name="passward" data-name="passward" placeholder="비밀번호" id="passward" required=""><input type="password" class="text-field bottom-margin-field w-input" autofocus="true" maxlength="256" name="passward" data-name="passward" placeholder="비밀번호 확인" id="passward-4" required=""><input type="submit" value="Submit" data-wait="Please wait..." class="button-small form-centered-button w-button"></form>
+            <div class="success-message filled-success-message w-form-done">
+              <div>Thank you! Your submission has been received!</div>
+            </div>
+            <div class="error-message filled-error-message w-form-fail">
+              <div>Oops! Something went wrong while submitting the form.</div>
+            </div>
+          </div>
+          <a id="w-node-de1604d7-1046-4722-f594-6ea339f4f1b6-06027524" href="#" class="popup1-popup-close">Login</a>
+        </div>
+      </div>
     </div>
-    <form action="{% url 'accountapp:create' %}" method="post">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
-    </form>
-</div>
+  </div>
 {% endblock %}

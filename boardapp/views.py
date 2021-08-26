@@ -79,7 +79,7 @@ class BoardListView(BasicListView):
     template_name = 'boardapp/list.html'
 
     def get_queryset(self):
-        all_list = Board.objects.filter()
+        all_list = Board.objects.filter().order_by('-id')
 
         page = int(self.request.GET.get('page', 1))
         paginator = Paginator(all_list, 4)
@@ -92,7 +92,7 @@ class NoticeListView(BasicListView):
     template_name = 'boardapp/notice.html'
 
     def get_queryset(self):
-        notice_list = Board.objects.filter(type='notice')
+        notice_list = Board.objects.filter(type='notice').order_by('-id')
 
         page = int(self.request.GET.get('page', 1))
         paginator = Paginator(notice_list, 4)
@@ -105,7 +105,7 @@ class ContestListView(BasicListView):
     template_name = 'boardapp/contest.html'
 
     def get_queryset(self):
-        contest_list = Board.objects.filter(type='contest')
+        contest_list = Board.objects.filter(type='contest').order_by('-id')
 
         page = int(self.request.GET.get('page', 1))
         paginator = Paginator(contest_list, 4)
@@ -118,7 +118,7 @@ class KquestionListView(BasicListView):
     template_name = 'boardapp/kquestion.html'
 
     def get_queryset(self):
-        kquestion_list = Board.objects.filter(type='kquestion')
+        kquestion_list = Board.objects.filter(type='kquestion').order_by('-id')
 
         page = int(self.request.GET.get('page', 1))
         paginator = Paginator(kquestion_list, 4)
@@ -126,11 +126,12 @@ class KquestionListView(BasicListView):
 
         return queryset
 
+
 class TutoringListView(BasicListView):
     template_name = 'boardapp/tutoring.html'
 
     def get_queryset(self):
-        tutoring_list = Board.objects.filter(type='tutoring')
+        tutoring_list = Board.objects.filter(type='tutoring').order_by('-id')
 
         page = int(self.request.GET.get('page', 1))
         paginator = Paginator(tutoring_list, 4)
@@ -138,11 +139,12 @@ class TutoringListView(BasicListView):
 
         return queryset
 
+
 class DsumListView(BasicListView):
     template_name = 'boardapp/dsum.html'
 
     def get_queryset(self):
-        dsum_list = Board.objects.filter(type='dsum')
+        dsum_list = Board.objects.filter(type='dsum').order_by('-id')
 
         page = int(self.request.GET.get('page', 1))
         paginator = Paginator(dsum_list, 4)
