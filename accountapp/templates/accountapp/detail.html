@@ -4,8 +4,7 @@
 <div>
     <div style="text-align:center; max-width:500px; margin: 4rem auto">
         <p>{{target_user.date_joined}}</p>
-
-        <img src="/static/images/crimson1positive.gif" loading="lazy" width="23rem" alt="" class="image-2">
+        
         <!--대상의 프로필이 있는가-->
         {% if target_user.profile %}
         <img src="{{ target_user.profile.image.url }}" alt=""

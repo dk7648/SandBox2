@@ -82,7 +82,7 @@ class BoardListView(BasicListView):
         all_list = Board.objects.filter()
 
         page = int(self.request.GET.get('page', 1))
-        paginator = Paginator(all_list, 2)
+        paginator = Paginator(all_list, 4)
         queryset = paginator.get_page(page)
 
         return queryset
@@ -95,7 +95,7 @@ class NoticeListView(BasicListView):
         notice_list = Board.objects.filter(type='notice')
 
         page = int(self.request.GET.get('page', 1))
-        paginator = Paginator(notice_list, 3)
+        paginator = Paginator(notice_list, 4)
         queryset = paginator.get_page(page)
 
         return queryset
@@ -112,6 +112,7 @@ class ContestListView(BasicListView):
         queryset = paginator.get_page(page)
 
         return queryset
+
 
 class KquestionListView(BasicListView):
     template_name = 'boardapp/kquestion.html'

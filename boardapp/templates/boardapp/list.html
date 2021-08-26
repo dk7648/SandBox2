@@ -35,7 +35,7 @@
             <div class="paragraph-70">{{ post.summary | safe }}</div>
 
             <div class="blog1-button-wrap">
-                <a data-w-id="f9ef15d0-6893-c5ae-03fd-813eda5bbe5d" href="#" class="button-small etc w-inline-block">
+                <a data-w-id="f9ef15d0-6893-c5ae-03fd-813eda5bbe5d" href="{% url 'boardapp:detail' pk=post.pk%}" class="button-small etc w-inline-block">
                     <div class="button-label">Read more</div>
                     <img src="images/Arrow2x.svg" alt="" class="button-arrow">
                 </a>
