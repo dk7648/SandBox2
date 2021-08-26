@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DeleteView, ListView, DetailView, UpdateView
 from django.views.generic.edit import FormMixin
 
-from boardapp.decorators import board_ownership_required
+from boardapp.decorators import board_ownership_required, LoginRequired
 from boardapp.forms import BoardCreationForm
 from boardapp.models import Board
 from commentapp.forms import CommentCreationForm
@@ -31,21 +31,20 @@ class BoardCreateView(CreateView):
     def get_success_url(self):
         return reverse('boardapp:detail', kwargs={'pk': self.object.pk})
 
-class BoardDetailView(DetailView, FormMixin):
+
+class BoardDetailView(LoginRequired, DetailView, FormMixin):
+    login_url = '/accounts/login/'
     model = Board
     form_class = CommentCreationForm
     context_object_name = 'target_post'
     template_name = 'boardapp/detail.html'
 
-
-
     def get_context_data(self, **kwargs):
         comment_list = Comment.objects.filter(board=self.object.pk).order_by('-created_at')
-        #if user.is_authenticated: #로그인 했는가?
-           #join = Join.objects.filter(user=user, project=project)
-        #object_list = Post.object(project=self.get_object())
+        # if user.is_authenticated: #로그인 했는가?
+        # join = Join.objects.filter(user=user, project=project)
+        # object_list = Post.object(project=self.get_object())
         return super(BoardDetailView, self).get_context_data(comment_list=comment_list, **kwargs)
-
 
 
 @method_decorator(board_ownership_required, 'get')
@@ -59,6 +58,7 @@ class BoardUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('boardapp:detail', kwargs={'pk': self.object.pk})
 
+
 @method_decorator(board_ownership_required, 'get')
 @method_decorator(board_ownership_required, 'post')
 class BoardDeleteView(DeleteView):
@@ -68,53 +68,86 @@ class BoardDeleteView(DeleteView):
     template_name = 'boardapp/delete.html'
 
 
-
-class BasicListView(ListView):
+class BasicListView(LoginRequired, ListView):
+    login_url = '/accounts/login/'
     model = Board
     context_object_name = 'post_list'
-
-    #template_name = 'boardapp/notice.html'
-    paginate_by = 25
-
     ordering = ['-id']
-
-
-
-
 
 
 class BoardListView(BasicListView):
     template_name = 'boardapp/list.html'
 
+    def get_queryset(self):
+        all_list = Board.objects.filter().order_by('-id')
+
+        page = int(self.request.GET.get('page', 1))
+        paginator = Paginator(all_list, 4)
+        queryset = paginator.get_page(page)
+
+        return queryset
 
 
 class NoticeListView(BasicListView):
     template_name = 'boardapp/notice.html'
 
     def get_queryset(self):
-        temp = []
-        board_all = Board.objects.all()
-        for board in board_all:
-            if board.type == 'notice':
-                temp.append(board)
-        board_temp = temp
-        page = int(self.request.GET.get('p', 1))
-        paginator = Paginator(board_temp, 3)
+        notice_list = Board.objects.filter(type='notice').order_by('-id')
+
+        page = int(self.request.GET.get('page', 1))
+        paginator = Paginator(notice_list, 4)
         queryset = paginator.get_page(page)
+
         return queryset
 
 
 class ContestListView(BasicListView):
     template_name = 'boardapp/contest.html'
 
+    def get_queryset(self):
+        contest_list = Board.objects.filter(type='contest').order_by('-id')
+
+        page = int(self.request.GET.get('page', 1))
+        paginator = Paginator(contest_list, 4)
+        queryset = paginator.get_page(page)
+
+        return queryset
+
 
 class KquestionListView(BasicListView):
     template_name = 'boardapp/kquestion.html'
+
+    def get_queryset(self):
+        kquestion_list = Board.objects.filter(type='kquestion').order_by('-id')
+
+        page = int(self.request.GET.get('page', 1))
+        paginator = Paginator(kquestion_list, 4)
+        queryset = paginator.get_page(page)
+
+        return queryset
 
 
 class TutoringListView(BasicListView):
     template_name = 'boardapp/tutoring.html'
 
+    def get_queryset(self):
+        tutoring_list = Board.objects.filter(type='tutoring').order_by('-id')
+
+        page = int(self.request.GET.get('page', 1))
+        paginator = Paginator(tutoring_list, 4)
+        queryset = paginator.get_page(page)
+
+        return queryset
+
 
 class DsumListView(BasicListView):
     template_name = 'boardapp/dsum.html'
+
+    def get_queryset(self):
+        dsum_list = Board.objects.filter(type='dsum').order_by('-id')
+
+        page = int(self.request.GET.get('page', 1))
+        paginator = Paginator(dsum_list, 4)
+        queryset = paginator.get_page(page)
+
+        return queryset
