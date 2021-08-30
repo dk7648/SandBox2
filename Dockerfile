@@ -6,6 +6,9 @@ RUN git clone https://github.com/dk7648/SandBox2.git
 
 WORKDIR /home/web/
 
+#install dependencies
+RUN pip install --upgrade pip
+
 RUN pip install -r requirements.txt
 
 RUN echo "SECRET_KEY=django-insecure-)xi@a5e!2_u$+tcl@2o1#^+hsfrxh43&-_qm-z1p8hem1p^zf@" > .env
